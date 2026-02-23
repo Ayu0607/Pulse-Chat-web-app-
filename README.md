@@ -1,6 +1,6 @@
 💬 Pulse Chat — Real-Time Messaging App
+
 Pulse Chat is a modern, full-stack, real-time communication platform. It features a sleek user interface and a robust backend designed for instant message delivery and seamless user authentication.
-+1
 
 🚀 Key Features
 Real-Time Messaging: Powered by Convex, messages appear instantly across devices without page refreshes.
@@ -17,7 +17,7 @@ Unread Badges: Dynamic unread message counters that update in real-time as you c
 
 🛠️ Tech Stack
 Layer   Technology
-Frontend - Next.js 14 (App Router), TypeScript, Tailwind CSS
+Frontend - Next.js (App Router), TypeScript, Tailwind CSS
 Backend / Database - Convex (Real-time sync)
 Authentication - Clerk (JWT-based security)
 
