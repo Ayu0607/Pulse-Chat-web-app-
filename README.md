@@ -16,12 +16,15 @@ Modern Tech Stack: Built with Next.js 14, TypeScript, and Tailwind CSS for a fas
 Unread Badges: Dynamic unread message counters that update in real-time as you chat.
 
 🛠️ Tech Stack
+
 Layer   Technology
+
 Frontend - Next.js (App Router), TypeScript, Tailwind CSS
 Backend / Database - Convex (Real-time sync)
 Authentication - Clerk (JWT-based security)
 
 📁 Project Structure
+
 /src/app - Next.js App Router pages and layouts.
 
 /src/components - Reusable UI components (ChatWindow, Sidebar, etc.).
