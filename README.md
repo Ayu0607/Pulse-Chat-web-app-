@@ -17,10 +17,10 @@ Unread Badges: Dynamic unread message counters that update in real-time as you c
 
 🛠️ Tech Stack
 
-Layer   Technology
-
 Frontend - Next.js (App Router), TypeScript, Tailwind CSS
+
 Backend / Database - Convex (Real-time sync)
+
 Authentication - Clerk (JWT-based security)
 
 📁 Project Structure
