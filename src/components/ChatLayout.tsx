@@ -41,6 +41,12 @@ export default function ChatLayout() {
     setSelectedConversationId(null);
   };
 
+  // When a conversation is deleted, go back to sidebar
+  const handleDeleteConversation = () => {
+    setSelectedConversationId(null);
+    setShowSidebar(true);
+  };
+
   if (!currentUser) return (
     <div className="h-screen flex items-center justify-center bg-[#0a0a0f]">
       <div className="flex gap-1"><div className="typing-dot"/><div className="typing-dot"/><div className="typing-dot"/></div>
@@ -50,7 +56,12 @@ export default function ChatLayout() {
   return (
     <div className="h-screen flex bg-[#0a0a0f] overflow-hidden">
       <div className={`${showSidebar ? "flex" : "hidden"} md:flex w-full md:w-80 lg:w-96 flex-shrink-0 border-r border-[#2a2a38] flex-col`}>
-        <Sidebar currentUser={currentUser} selectedConversationId={selectedConversationId} onSelectConversation={handleSelectConversation} />
+        <Sidebar
+          currentUser={currentUser}
+          selectedConversationId={selectedConversationId}
+          onSelectConversation={handleSelectConversation}
+          onDeleteConversation={handleDeleteConversation}
+        />
       </div>
       <div className={`${!showSidebar ? "flex" : "hidden"} md:flex flex-1 flex-col min-w-0`}>
         {selectedConversationId && currentUser ? (

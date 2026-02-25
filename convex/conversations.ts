@@ -31,3 +31,25 @@ export const getConversation = query({
   args: { conversationId: v.id("conversations") },
   handler: async (ctx, args) => ctx.db.get(args.conversationId),
 });
+
+export const deleteConversation = mutation({
+  args: { conversationId: v.id("conversations") },
+  handler: async (ctx, args) => {
+    // Delete all messages in the conversation
+    const messages = await ctx.db
+      .query("messages")
+      .withIndex("by_conversation", (q) => q.eq("conversationId", args.conversationId))
+      .collect();
+    await Promise.all(messages.map((m) => ctx.db.delete(m._id)));
+
+    // Delete all typing indicators
+    const typing = await ctx.db
+      .query("typingIndicators")
+      .withIndex("by_conversation", (q) => q.eq("conversationId", args.conversationId))
+      .collect();
+    await Promise.all(typing.map((t) => ctx.db.delete(t._id)));
+
+    // Delete the conversation itself
+    await ctx.db.delete(args.conversationId);
+  },
+});
